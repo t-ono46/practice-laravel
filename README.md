@@ -14,3 +14,4 @@ php artisan migrate
 php artisan ui bootstrap
 npm install && npm run dev
 ```
+http://localhost:8081/
