@@ -7,14 +7,14 @@
     <meta charset="utf-8">
 </head>
 
-<body>
+<body class="bg-light">
 <header>
 
 </header>
 
-<section>
+<div class="container">
     @yield('content')
-</section>
+</div>
 
 <footer>
 
