@@ -15,6 +15,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('index');
 
-Route::resource('note', NoteController::class);
+Route::resource('notes', NoteController::class);

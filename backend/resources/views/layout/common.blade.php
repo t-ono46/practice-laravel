@@ -9,15 +9,15 @@
 
 <body class="bg-light">
 <header>
-
+    @include('layout.header')
 </header>
 
-<div class="container">
+<div class="container mt-5">
     @yield('content')
 </div>
 
 <footer>
-
+    @include('layout.footer')
 </footer>
 </body>
 </html>

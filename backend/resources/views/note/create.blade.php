@@ -3,7 +3,7 @@
 @section('title', 'ノート作成')
 
 @section('content')
-    <form action="{{ route('note.store') }}" method="POST">
+    <form action="{{ route('notes.store') }}" method="POST">
         <textarea class="" id="body" name="name"></textarea>
     </form>
 
