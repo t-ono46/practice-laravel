@@ -18,7 +18,7 @@ class CreateNotesTable extends Migration
             $table->id();
             $table->foreignIdFor(User::class)->nullable();
             $table->char('title');
-            $table->mediumText('content');
+            $table->mediumText('body');
             $table->timestamps();
         });
     }

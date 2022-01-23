@@ -4,12 +4,17 @@
 
 @section('content')
     <form class="form" action="{{ route('notes.store') }}" method="POST">
+        @csrf
+        <div class="mb-3">
+            <input class="btn btn-primary" type="submit" value="保存する">
+        </div>
+
         <div class="mb-3">
             <label for="title" class="form-label">タイトル</label>
             <input id="title" class="form-control" name="title" value="{{ old('title') }}">
         </div>
-        <div class="mb-3">
-            <label for="body" class="form-label">本文</label><textarea class="" id="body" name="content"></textarea>
+        <div class="mb-3" style="height: 600px">
+            <label for="body" class="form-label">本文</label><textarea class="" id="body" name="body"></textarea>
         </div>
     </form>
 

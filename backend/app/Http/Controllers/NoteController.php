@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\NoteRequest;
+use App\Models\Note;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -36,12 +39,14 @@ class NoteController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return Response
+     * @param NoteRequest $request
+     * @return RedirectResponse
      */
-    public function store(Request $request)
+    public function store(NoteRequest $request)
     {
-        //
+        Note::create($request->all())->save();
+
+        return redirect()->route('notes.index')->with('success_message', 'ノートを作成しました');
     }
 
     /**
@@ -69,7 +74,7 @@ class NoteController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      * @param int $id
      * @return Response
      */
