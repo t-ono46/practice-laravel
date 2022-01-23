@@ -22,7 +22,6 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
     <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script>
         $(document).ready(function () {
             var simplemde = new SimpleMDE({element: document.getElementById("body")});
