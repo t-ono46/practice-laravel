@@ -8,7 +8,6 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 /**
@@ -64,34 +63,38 @@ class NoteController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param int $id
-     * @return Response
+     * @param Note $note
+     * @return Application|Factory|View
      */
-    public function edit($id)
+    public function edit(Note $note)
     {
-        //
+        return view('note.edit', compact('note'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
-     * @param int $id
-     * @return Response
+     * @param NoteRequest $request
+     * @param Note $note
+     * @return RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(NoteRequest $request, Note $note)
     {
-        //
+        $note->fill($request->all())->save();
+
+        return redirect()->route('notes.index')->with('success_message', 'ノートを更新しました');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id
-     * @return Response
+     * @param Note $note
+     * @return RedirectResponse
      */
-    public function destroy($id)
+    public function destroy(Note $note)
     {
-        //
+        $note->delete();
+
+        return redirect()->route('notes.index')->with('success_message', 'ノートを削除しました');
     }
 }
