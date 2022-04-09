@@ -1,18 +1,87 @@
 # mynote
 
+## 開発環境構築
+
 ```
-# after git clone
-cd mynote
-docker compose up -d --build
-docker compose exec app bash
-composer install
-cp .env.example .env
-php artisan key:generate
-php artisan storage:link
-chmod -R 777 storage bootstrap/cache
-php artisan migrate
-# php artisan ui bootstrap
-npm install && npm run dev
+# init
+$ git clone ~
+$ cd mynote
+$ make install
+
+# browser
+http://localhost:8080/
 ```
 
-http://localhost:8081/
+---
+
+## make コマンド
+
+### 環境構築
+
+```
+$ make install
+```
+
+### コンテナ起動
+
+```
+$ make up
+```
+
+### コンテナ停止
+
+```
+$ make down
+```
+
+### コンテナ、イメージ削除
+
+```
+$ make destory
+```
+
+### キャッシュクリア
+
+ローカルの環境変数（`.env.example`)を変更した場合もこれを行う
+
+```
+$ make cache
+```
+
+### npm run
+
+```
+$ make npm-run
+```
+
+### npm run watch
+
+```
+$ make npm-watch
+```
+
+### マイグレーション
+
+```
+$ make migrate
+```
+
+### マイグレーション　ロールバック
+
+```
+$ make migrate-rollback
+```
+
+### マイグレーション（再構築）
+
+**データが消去されます**
+
+```
+$ make migrate-fresh
+```
+
+### Bash起動
+
+```
+$ make bash
+```
