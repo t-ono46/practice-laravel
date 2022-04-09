@@ -11,7 +11,7 @@
 
         <div class="mb-3">
             <label for="title" class="form-label">タイトル</label>
-            <input id="title" class="form-control" name="title" value="{{ old('title') }}">
+            <input id="title" class="form-control bg-white" name="title" value="{{ old('title') }}">
         </div>
         <div class="mb-3" style="height: 600px">
             <label for="body" class="form-label">本文</label>
