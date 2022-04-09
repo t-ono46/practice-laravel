@@ -26,7 +26,22 @@ class NoteRequest extends FormRequest
     {
         return [
             'title' => 'required|max:' . FormStringLimit::VARCHAR_COLUMN_LIMIT,
-            'body' => 'required',
+            'body' => '',
         ];
+    }
+
+    public function messages()
+    {
+        return [
+            'title.max' => 'タイトルは' . FormStringLimit::VARCHAR_COLUMN_LIMIT . '文字以下で入力してください。',
+        ];
+    }
+
+
+    public function prepareForValidation()
+    {
+        if (!isset($this->name)) {
+            $this->merge(['title' => '無題']);
+        }
     }
 }
