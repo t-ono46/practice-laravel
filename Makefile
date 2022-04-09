@@ -5,8 +5,8 @@ install:
 	sudo docker-compose up -d --build
 	sudo docker-compose exec $(service_name) composer install
 	make npm-run
-	make cache
 	sudo docker-compose exec $(service_name) php artisan key:generate
+	make cache
 	make migrate-fresh
 	sudo chmod -R 777 laravel/storage
 	-sudo rm laravel/public/storage
@@ -19,7 +19,6 @@ destroy:
 	sudo docker-compose down --rmi all --volumes --remove-orphans
 
 cache:
-	cp laravel/.env.example laravel/.env
 	sudo docker-compose exec $(service_name) php artisan cache:clear
 	sudo docker-compose exec $(service_name) php artisan config:clear
 	sudo docker-compose exec $(service_name) php artisan route:clear
@@ -41,7 +40,6 @@ migrate:
 migrate-rollback:
 	sudo docker-compose exec $(service_name) php artisan migrate:rollback
 migrate-fresh:
-	cp laravel/.env.example laravel/.env
 	sudo docker-compose exec $(service_name) composer dump-autoload
 	sudo docker-compose exec $(service_name) php artisan migrate:fresh --seed
 

@@ -42,8 +42,6 @@ $ make destory
 
 ### キャッシュクリア
 
-ローカルの環境変数（`.env.example`)を変更した場合もこれを行う
-
 ```
 $ make cache
 ```
