@@ -17,7 +17,7 @@
 
 <body class="bg-light">
 <header>
-    @include('layout.header')
+    @include('layouts.header')
 </header>
 
 <div class="container mt-5">
@@ -46,7 +46,7 @@
 </div>
 
 <footer>
-    @include('layout.footer')
+    @include('layouts.footer')
 </footer>
 </body>
 </html>
